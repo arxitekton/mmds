@@ -1,3 +1,7 @@
+### Ranking articles in ukwiki by volatility
+#### Goal
+Create a ranking of relevant articles that exists in the Ukranian Wikipedia (ukwiki) but are missing in the English Wikipedia (enwiki) with ranking by volatility.
+
 #### Data
 
 The following data were used for the project:
