@@ -24,8 +24,10 @@ Python script to convert sql.gz file to csv:
 
 #### ETL:
 * https://github.com/arxitekton/mmds/tree/master/spark-wiki
+
 getting pageviews stats:
 * https://github.com/arxitekton/mmds/blob/master/spark-wiki/src/main/scala/com/mmds/demo/pageviewRequest_0.scala
+
 getting variance:
 * https://github.com/arxitekton/mmds/blob/master/spark-wiki/src/main/scala/com/mmds/demo/variance_ts.scala
 
