@@ -25,10 +25,21 @@ Python script to convert sql.gz file to csv:
 #### ETL:
 * https://github.com/arxitekton/mmds/tree/master/spark-wiki
 
-getting pageviews stats:
+##### getting pageviews stats:
 * https://github.com/arxitekton/mmds/blob/master/spark-wiki/src/main/scala/com/mmds/demo/pageviewRequest_0.scala
 
-getting variance:
+algorithm:
+* getting 'langlinks' data and filter $"lang" ==="en"
+* getting 'page' data
+* from 20180601 to 20180614:
+    * getting hourly "pageviews" for this date and filter $"project" === "uk"
+    * left join "pageviews" with 'page' on 'title' because we need $"page_id"
+    * leftanti with 'langlinks' (exckude corresponding row) - because we need just article missing in the enwiki
+    * groupBy "page_id" and aggregate sum of "requests"
+    * append to parquet
+
+
+#####getting variance:
 * https://github.com/arxitekton/mmds/blob/master/spark-wiki/src/main/scala/com/mmds/demo/variance_ts.scala
 
 #### Result
