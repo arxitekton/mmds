@@ -60,7 +60,7 @@ object pageviewRequest_0 {
 
     val format = new java.text.SimpleDateFormat("yyyyMMdd")
     val startDate = format.parse("20180601")
-    val endDate = format.parse("20180607")
+    val endDate = format.parse("20180614")
 
     val dateRange = genDateRange(startDate, endDate)
     for (date <- dateRange) {

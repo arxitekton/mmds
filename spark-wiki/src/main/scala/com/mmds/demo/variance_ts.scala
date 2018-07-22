@@ -34,7 +34,7 @@ object variance_ts {
     vari.show()
 
     //.filter("variance > 0.0")
-    val result = vari.filter( $"count" === 7).orderBy($"variance".asc)
+    val result = vari.filter( $"count" === 14).orderBy($"variance".asc)
     result.show()
 
     val df_page = sess.read.format("csv").option("header", "true").load("./data/page/ukwiki-20180701-page.csv")
@@ -43,8 +43,13 @@ object variance_ts {
 
     val result_with_title = result.join(df_page, "page_id")
 
-    val fnl = result_with_title.select("page_id", "title")
+    val fnl = result_with_title.select("page_id", "title", "variance").orderBy($"variance".asc)
     fnl.show()
+
+    //fnl.write.format("csv").save("./ranking.csv")
+    //fnl.write.format("com.databricks.spark.csv").save("./ranking.csv")
+    //fnl.coalesce(1).write.format("com.databricks.spark.csv").option("header", "true").save("./ranking.csv")
+    fnl.coalesce(1).write.mode("overwrite").format("com.databricks.spark.csv").option("header", "true").csv("./ranking.csv")
 
     //val test = ds.filter( $"page_id" === 1463593)
     //test.show()
